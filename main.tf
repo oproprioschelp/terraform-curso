@@ -18,7 +18,7 @@ provider "aws" {
 }
 
 
-resource "aws_instance" "web" {
+/* resource "aws_instance" "web" {
   ami                     = var.amis[var.region]
   instance_type           = var.int_type
   disable_api_termination = var.disable_api_termination
@@ -28,7 +28,7 @@ resource "aws_instance" "web" {
     Name = element(var.int_names, 2)
   }
 }
-
+ */
 resource "aws_instance" "web" {
   count                   = length(var.int_names)
   ami                     = var.amis[var.region]
